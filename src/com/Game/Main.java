@@ -7,5 +7,4 @@ public class Main {
         MyFrame newFrame = new MyFrame();
 
     }
-
 }

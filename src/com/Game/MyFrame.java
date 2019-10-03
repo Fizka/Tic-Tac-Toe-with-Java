@@ -11,15 +11,12 @@ public class MyFrame extends JFrame implements ActionListener {
     sixButton, sevenButton, eightButton, nineButton, gameOnOffButton;
 
     private JTextField comunicat;
-    //private JLabel comunicat;
 
     private Color buttonsColor = Color.GRAY;
 
     private int counter = 0, iconInt = 4;
     private String path;
-    private Boolean planAgain = true, Mytour = true;
-
-
+    private Boolean planAgain = true, Myturn = true;
     int [][] tab = new int[3][3];
 
 
@@ -178,55 +175,46 @@ public class MyFrame extends JFrame implements ActionListener {
         if(source == oneButton)
         {
             PickMeUp(1);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == twoButton)
         {
             PickMeUp(2);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == threeButton)
         {
            PickMeUp(3);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == fourButton)
         {
             PickMeUp(4);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == fiveButton)
         {
             PickMeUp(5);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == sixButton)
         {
            PickMeUp(6);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == sevenButton)
         {
            PickMeUp(7);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == eightButton)
         {
             PickMeUp(8);
-            Mytour = false;
             LetsPlay();
         }
         else if(source == nineButton)
         {
             PickMeUp(9);
-            Mytour = false;
             LetsPlay();
         }
         else  if(source == gameOnOffButton)
@@ -429,6 +417,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     oneButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[0][0] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -440,6 +429,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         twoButton.setIcon(new ImageIcon(path));
                         counter++;
                         tab[0][1] = iconInt;
+                        Myturn = false;
 
                         if (CheckOutcome() == true)
                             planAgain = false;
@@ -451,6 +441,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     threeButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[0][2] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -462,6 +453,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     fourButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[1][0] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -473,6 +465,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     fiveButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[1][1] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -484,6 +477,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     sixButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[1][2] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -495,6 +489,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     sevenButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[2][0] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -507,6 +502,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     eightButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[2][1] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -518,6 +514,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     nineButton.setIcon(new ImageIcon(path));
                     counter++;
                     tab[2][2] = iconInt;
+                    Myturn = false;
 
                     if (CheckOutcome() == true)
                         planAgain = false;
@@ -532,10 +529,10 @@ public class MyFrame extends JFrame implements ActionListener {
     public void LetsPlay()
     {
         Player player = new Player();
-        if(Mytour == false) {
+        if((Myturn == false) && (counter != 9) && (planAgain !=  false)) {
                 int move = player.Move(tab);
                 PickMeUp(move+1);
-                Mytour = true;
+                Myturn = true;
         }
     }
 

@@ -1,6 +1,5 @@
 package com.Game;
 
-import javax.swing.text.StyledEditorKit;
 import java.util.Random;
 
 public class Player {
@@ -8,9 +7,10 @@ public class Player {
     private int count;
     private Boolean ArrayWithIndex [] = new Boolean[9];
     private Boolean check = true;
-    int a, Mymove = 4, index = 0;
-    Random r;
+    private int temp, Mymove = 4, index = 0;
+    private Random myShot;
 
+    
     public int Move(int tab[][]) {
 
         for(int i=0; i<9; i++)
@@ -24,16 +24,13 @@ public class Player {
                 index++;
             }
             while (check) {
-                r = new Random();
-                // Losowanie liczby z zakresu [0,8] do zmiennej a.
-                a = r.nextInt(9); // deklaracja i definicja zmiennej
-                    if (ArrayWithIndex[a] == false) {
-                        Mymove = a;
+                myShot = new Random();
+                temp = myShot.nextInt(9);
+                    if (ArrayWithIndex[temp] == false) {
+                        Mymove = temp;
                         return Mymove;
                     }
             }
-
-
         return Mymove;
     }
 
